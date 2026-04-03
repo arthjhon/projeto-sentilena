@@ -17,8 +17,12 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            export PATH=$PATH:/usr/bin:/usr/local/bin
             cd /home/teranex-sentinela/repo
+            git config --global --add safe.directory /home/teranex-sentinela/repo
             git pull origin prod
-            npm install --omit=dev
+            npm install
             npm run build
             cp -r dist/* /home/teranex-sentinela/htdocs/sentinela.teranex.inf.br/
