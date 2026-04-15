@@ -26,9 +26,7 @@ const PublicNavbar = () => {
       <div className="navbar-container">
         {/* LOGO */}
         <Link to="/" className="navbar-brand">
-          <div className="brand-icon">
-            <Droplet size={24} color="var(--primary)" />
-          </div>
+          <img src="/Sentinela.svg" alt="Projeto Sentinela Logo" className="navbar-logo" />
           <span className="brand-text">Proj. Sentinela</span>
         </Link>
 
